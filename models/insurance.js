@@ -5,50 +5,50 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING,
 			alllowNull: false,
 			validate: {
-                len: [1]
-            }
+				len: [1]
+			}
 		},
 
 		company: {
 			type: DataTypes.STRING,
 			alllowNull: false,
 			validate: {
-                len: [1]
-            }
+				len: [1]
+			}
 		},
 
 		phone_num: {
 			type: DataTypes.TEXT,
-    		alllowNull: false,
-    		validate: {
-                len: [1]
-            }
-		}
+			alllowNull: false,
+			validate: {
+				len: [1]
+			}
+		},
 
 		agent: {
 			type: DataTypes.STRING,
-    		alllowNull: false,
-    		validate: {
-                len: [1]
-            }
+			alllowNull: false,
+			validate: {
+				len: [1]
+			}
 		},
 
 		policy_num: {
 			type: DataTypes.TEXT,
 			alllowNull: false,
 			validate: {
-                len: [1]
-            }
+				len: [1]
+			}
 		},
 
 		start_date: {
 			type: DataTypes.DATEONLY,
-    		alllowNull: false,
-    		validate: {
-                len: [1]
-            }
+			alllowNull: false,
+			validate: {
+				len: [1]
+			}
 		}
-
+	
 	});
 
 	return Insurance;

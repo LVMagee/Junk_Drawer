@@ -27,26 +27,22 @@ module.exports = function(sequelize, DataTypes) {
         },
 
         bought: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.DATE,
             allowNull: false
-            validate: {
-                len: [2]
-            }
+            
         },
 
         price: {
             type: DataTypes.DECIMAL,
             allowNull: false
-            validate: {
-                len: [2]
-            }
+
         },
 
         info: {
             type: DataTypes.TEXT,
         }
-   
-    });
+    
+  });
 
     return Asset;
 };
