@@ -27,10 +27,7 @@ module.exports = function(sequelize, DataTypes) {
 
 		agent: {
 			type: DataTypes.STRING,
-			alllowNull: false,
-			validate: {
-				len: [1]
-			}
+	
 		},
 
 		policy_num: {
@@ -47,6 +44,10 @@ module.exports = function(sequelize, DataTypes) {
 			validate: {
 				len: [1]
 			}
+		},
+
+		ins_image: {
+			type: DataTypes.STRING,
 		}
 	
 	});
