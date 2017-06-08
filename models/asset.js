@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
         },
 
         bought: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull: false
             
         },
@@ -40,6 +40,10 @@ module.exports = function(sequelize, DataTypes) {
 
         info: {
             type: DataTypes.TEXT,
+        },
+
+        asset_image: {
+            type: DataTypes.STRING,
         }
     
   });
