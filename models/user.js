@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
 	password: DataTypes.TEXT,
 	allowNull: false,
 	validate: {
-		len: [8,12]
+		len: [8,16]
 	}
 }
   });
