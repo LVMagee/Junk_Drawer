@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
 	var Insurance = sequelize.define("Insurance", {
 
-		insur_type: {
+		insure_type: {
 			type: DataTypes.STRING,
 			alllowNull: false,
 			validate: {
@@ -27,7 +27,10 @@ module.exports = function(sequelize, DataTypes) {
 
 		agent: {
 			type: DataTypes.STRING,
-	
+			alllowNull: false,
+			validate: {
+				len: [1]
+			}
 		},
 
 		policy_num: {
@@ -46,11 +49,12 @@ module.exports = function(sequelize, DataTypes) {
 			}
 		},
 
-		ins_image: {
+		image_link: {
 			type: DataTypes.STRING,
 		}
-	
-	});
+
+
+});
 
 	return Insurance;
 };

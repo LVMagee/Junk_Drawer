@@ -28,13 +28,15 @@ module.exports = function(sequelize, DataTypes) {
 
         bought: {
             type: DataTypes.DATEONLY,
-            allowNull: false
+            allowNull: false,
+            isDate: true, 
             
         },
 
         price: {
             type: DataTypes.DECIMAL,
-            allowNull: false
+            allowNull: false,
+            isDecimal: true,
 
         },
 
@@ -45,8 +47,9 @@ module.exports = function(sequelize, DataTypes) {
         asset_image: {
             type: DataTypes.STRING,
         }
-    
-  });
+
+
+    });
 
     return Asset;
 };
