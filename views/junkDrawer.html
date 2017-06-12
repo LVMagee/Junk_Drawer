@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- linking the CSS pages -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link rel="stylesheet" href="junkDrawer.css">
+
+	<!-- linking the JS pages -->
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="junkDrawer.js"></script>
+</head>
+<body>
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<!-- this is the title of the project which shows up on the top of the page -->
+	<div  id="projectName" class="row">
+		<center><h1>Junk Drawer</h1></center>
+	</div>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<!-- this is the navigation bar for the profile, insurance info, and item list -->
+	<div id="navBar" class="row">
+		
+		<!-- tabs -->
+  		<ul class="nav nav-tabs" role="tablist">
+  			<!-- this is the profile tab -->
+  			<li role="presentation">
+  				<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
+  					Profile
+  				</a>
+  			</li>
+
+  			<!-- this is the items tab -->
+  			<li role="presentation">
+  				<a href="#insurance" aria-controls="insurance" role="tab" data-toggle="tab">
+  					Insurance Info
+  				</a>
+  			</li>
+
+  			<!-- this is the items tab -->
+  			<li role="presentation">
+  				<a href="#items" aria-controls="items" role="tab" data-toggle="tab">
+  					Items
+  				</a>
+  			</li>
+  		</ul>
+
+  		<!-- Tab panes -->
+  		<div class="tab-content">
+  			<!-- this is the profile tab body -->
+			<div role="tabpanel" class="tab-pane" id="profile">
+				
+			</div>
+
+			<!-- this is the insurance info tab body -->
+			<div role="tabpanel" class="tab-pane" id="insurance">
+				<center>
+				<!-- this is the collapse accordian for the existing insurance info -->
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					  <div class="panel">
+					    <div class="panel-heading" role="tab" id="headingOne">
+					      <h4 class="panel-title">
+					        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					          Insurance Company Info #1
+					        </a>
+					      </h4>
+					    </div>
+					    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+					      <div class="panel-body">
+					      </div>
+					    </div>
+					  </div>
+				</div>
+
+				<!-- Button trigger modal for add insurance info -->
+				<span class="glyphicon glyphicon-plus" aria-hidden="true" data-toggle="modal" data-target="#insuranceInfoForm"></span>
+				</center>
+			</div>
+
+			<!-- this is the items tab body-->
+    		<div role="tabpanel" class="tab-pane" id="items">
+    			<center>
+
+    			<div id="alphabetList" class="row">
+    			<!-- Alphabet list for the item name search -->
+				<div>
+					<!-- Button trigger modal for create an Item -->
+					<span id="plus" class="glyphicon glyphicon-plus" aria-hidden="true" data-toggle="modal" data-target="#createItemForm"></span>
+			
+					<span id="a" class="alphabet"><a href="#search">A</a></span>
+					<span id="b" class="alphabet"><a href="#search">B</a></span>
+					<span id="c" class="alphabet"><a href="#search">C</a></span>
+					<span id="d" class="alphabet"><a href="#search">D</a></span>
+					<span id="e" class="alphabet"><a href="#search">E</a></span>
+					<span id="f" class="alphabet"><a href="#search">F</a></span>
+					<span id="g" class="alphabet"><a href="#search">G</a></span>
+					<span id="h" class="alphabet"><a href="#search">H</a></span>
+					<span id="i" class="alphabet"><a href="#search">I</a></span>
+					<span id="j" class="alphabet"><a href="#search">J</a></span>
+					<span id="k" class="alphabet"><a href="#search">K</a></span>
+					<span id="l" class="alphabet"><a href="#search">L</a></span>
+					<span id="m" class="alphabet"><a href="#search">M</a></span>
+					<span id="n" class="alphabet"><a href="#search">N</a></span>
+					<span id="o" class="alphabet"><a href="#search">O</a></span>
+					<span id="p" class="alphabet"><a href="#search">P</a></span>
+					<span id="q" class="alphabet"><a href="#search">Q</a></span>
+					<span id="r" class="alphabet"><a href="#search">R</a></span>
+					<span id="s" class="alphabet"><a href="#search">S</a></span>
+					<span id="t" class="alphabet"><a href="#search">T</a></span>
+					<span id="u" class="alphabet"><a href="#search">U</a></span>
+					<span id="v" class="alphabet"><a href="#search">V</a></span>
+					<span id="w" class="alphabet"><a href="#search">W</a></span>
+					<span id="x" class="alphabet"><a href="#search">X</a></span>
+					<span id="y" class="alphabet"><a href="#search">Y</a></span>
+					<span id="z" class="alphabet"><a href="#search">Z</a></span>
+				</div>
+
+				</div>
+				</center>
+				
+				<br>
+
+				<!-- the display table for the item list on the items tab-->
+				<center>
+    			<table id="itemList" class="table">
+ 					<thead>
+ 						<td>Id</td>
+ 						<td>Item Name</td>
+ 					</thead>
+
+	 				<tr class="itemRowClick">
+	 					<td>1</td>
+	 					<td>toaster</td>
+	 					<td>
+	 						<div id="manageLinks">
+	 							<span class="glyphicon glyphicon-pencil itemEdit" aria-hidden="true"></span><span class="glyphicon glyphicon-remove itemRemove" aria-hidden="true">
+	 							</span>
+	 						</div>
+	 					</td>
+	 				</tr>
+				</table>
+				</center>
+
+    		</div>
+  		</div>
+
+	</div>
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- this is the pop up for the item row clickable option -->
+<div id="itemDetail">
+	<span id="closeItemDetail" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+</div>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<!-- this is the pop modal for the create an item form -->
+	<div class="modal" id="createItemForm" tabindex="-1" role="dialog" aria-labelledby="createItemForm">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				
+				<!-- this is the header title for the create an item form pop-up modal-->
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        		<center>
+	        			<h4 class="modal-title" id="createItemForm">Create an Item</h4>
+	        		</center>
+				</div>
+				
+				<!-- this is the body where the forms lies within the form pop-up modal -->
+				<div class="modal-body">
+					<div id="createItemForm" class="row">
+						<center>
+						<!-- this is form for create an item -->
+						<form>
+				    		<div class="form-group">
+								<label for="itemName">Item Name</label>
+								<input class="form-control" id="itemName" placeholder="itemName">
+							</div>
+
+							<div class="form-group">
+								<label for="serialNumber">Serial Number</label>
+								<input class="form-control" id="serialNumber" placeholder="serialNumber">
+							</div>
+								    
+							<div class="form-group">
+								<label for="modelNumber">Model Number</label>
+								<input class="form-control" id="modelNumber" placeholder="modelNumber">
+							</div>
+
+							<div class="form-group">
+								<label for="Manufacturer/ Brand">Manufacturer/ Brand</label>
+								<input class="form-control" id="Manufacturer" placeholder="manufacturer">
+							</div>
+
+							<div class="form-group">
+								<label for="price">Price</label>
+								<input class="form-control" id="price" placeholder="price">
+							</div>
+
+							<div class="form-group">
+								<label for="datePurchased">Date Purchased</label>
+								<input class="form-control" id="datePurchased" placeholder="datePurchased">
+							</div>
+
+							<div class="form-group">
+								<label for="quantity">Quantity</label>
+								<input class="form-control" id="quantity" placeholder="quantity">
+							</div>
+
+							<button type="submit" class="btn btn-default">
+								Submit
+							</button>
+				    	</form>
+				    	</center>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<!-- this is the pop modal for the add an insurance form -->
+	<div class="modal" id="insuranceInfoForm" tabindex="-1" role="dialog" aria-labelledby="insuranceInfoForm">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				
+				<!-- this is the header title for the create an item form pop-up modal-->
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        		<center>
+	        			<h4 class="modal-title" id="insuranceInfoForm">Add an Insurance</h4>
+	        		</center>
+				</div>
+				
+				<!-- this is the body where the forms lies within the form pop-up modal -->
+				<div class="modal-body">
+					<div id="insuranceInfoForm" class="row">
+						<center>
+						<!-- this is form for create an item -->
+						<form>
+				    		<div class="form-group">
+								<label for="itemName">Item Name</label>
+								<input class="form-control" id="itemName" placeholder="itemName">
+							</div>
+
+							<div class="form-group">
+								<label for="serialNumber">Serial Number</label>
+								<input class="form-control" id="serialNumber" placeholder="serialNumber">
+							</div>
+								    
+							<div class="form-group">
+								<label for="modelNumber">Model Number</label>
+								<input class="form-control" id="modelNumber" placeholder="modelNumber">
+							</div>
+
+							<div class="form-group">
+								<label for="Manufacturer/ Brand">Manufacturer/ Brand</label>
+								<input class="form-control" id="Manufacturer" placeholder="manufacturer">
+							</div>
+
+							<div class="form-group">
+								<label for="price">Price</label>
+								<input class="form-control" id="price" placeholder="price">
+							</div>
+
+							<div class="form-group">
+								<label for="datePurchased">Date Purchased</label>
+								<input class="form-control" id="datePurchased" placeholder="datePurchased">
+							</div>
+
+							<div class="form-group">
+								<label for="quantity">Quantity</label>
+								<input class="form-control" id="quantity" placeholder="quantity">
+							</div>
+
+							<button type="submit" class="btn btn-default">
+								Submit
+							</button>
+				    	</form>
+				    	</center>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
