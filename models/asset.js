@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Asset = sequelize.define("Asset", {
 
-        category: {
+        itemName: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -43,6 +43,10 @@ module.exports = function(sequelize, DataTypes) {
         info: {
             type: DataTypes.TEXT,
         },
+
+        inherit: {
+            type: DataTypes.STRING,
+        }
 
         asset_image: {
             type: DataTypes.STRING,
