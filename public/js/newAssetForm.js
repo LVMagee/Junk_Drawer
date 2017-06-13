@@ -7,9 +7,10 @@ $(document).ready(function(){
     event.preventDefault();
     // if (!newItemInput.val().trim()) {   return; }
     var asset = {
+      itemName: $("#itemName").val().trim(),
       category: $("#category").val().trim(),
       make: $("#make").val().trim(),
-      model: $("#itemName").val().trim(),
+      model: $("#model").val().trim(),
       serial_num: $("#serialNumber").val().trim(),
       bought: $("#date").val().trim(),
       price: $("#price").val().trim(),
@@ -18,12 +19,13 @@ $(document).ready(function(){
 
     // Posting the new todo, calling getTodos when done
     $.post("/api/assets", asset, function() {
-      getAssets();
+      displayAssets();
     });
     //clearing out form after adding to database
+    $("#itemName").val(""),
     $("#category").val("");
     $("#make").val("");
-    $("#itemName").val("");
+    $("#model").val("");
     $("#serialNumber").val("");
     $("#data").val("");
     $("#price").val("");

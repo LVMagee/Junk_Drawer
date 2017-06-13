@@ -52,7 +52,7 @@ module.exports = function(app){
 	});
 
 	//route to DELETE asset
-	app.delete("/api/assets", function(req, res){
+	app.delete("/api/assets/:id", function(req, res){
 		db.Asset.destroy({
 			where: {id: req.params.id}
 		}).then(function(assets){
