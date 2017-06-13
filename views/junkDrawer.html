@@ -47,6 +47,7 @@
   					Items
   				</a>
   			</li>
+
   		</ul>
 
   		<!-- Tab panes -->
@@ -71,6 +72,8 @@
 					    </div>
 					    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 					      <div class="panel-body">
+							
+
 					      </div>
 					    </div>
 					  </div>
@@ -152,6 +155,66 @@
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 <!-- this is the pop up for the item row clickable option -->
 <div id="itemDetail">
+	<div class="row">
+	<center>
+		<h4>Category</h4>
+		<div id="displayCategory">appliance</div>
+	</center>
+	</div>
+
+	<br >
+	
+	<div class="row">
+	<center>
+		<h4>Item Name</h4>
+		<div id="displayItemName">Oven</div>
+	</center>
+	</div>
+
+	<br >
+
+	<div class="row">
+		<div class="col-md-4 make">
+			<h4>Make</h4>
+			<div id="displayMake">Bosch</div>
+		</div>
+		
+		<div class="col-md-4">
+		<center>
+			<h4>Model</h4>
+			<div id="displayModel">oefaof</div>
+		</center>
+		</div>
+		
+		<div class="col-md-4 serial">
+		<h4>Serial Number</h4>
+		<div id="displaySerialNum">39434693423974</div>
+		</div>
+	</div>
+
+	<br >
+
+	<div class="row">
+		<div class="col-md-6 price">
+		<h4>Price</h4>
+		<div id="displayPrice">1000.00</div>
+		</div>
+		
+		<div class="col-md-6 purchased">
+		<h4>Date Purchased</h4>
+		<div id="displayDatePurchased">4/13/2017</div>
+		</div>
+	</div>
+	
+	<br >
+
+	<div class="row">
+	<center>
+		<h4>Additional Information</h4>
+		<div id="displayAddInfo">this is a test to see how this information is going to be displayed for the user to see it.</div>
+	</center>
+	</div>
+
 	<span id="closeItemDetail" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 </div>
 
@@ -175,6 +238,22 @@
 						<center>
 						<!-- this is form for create an item -->
 						<form>
+
+							<div class="form-group">
+								<label for="itemName">
+								Category</label>
+								<select name="category">
+									<option value="appliances">Appliances</option>
+									<option value="electronics">Electronics</option>
+									<option value="tools">Tools</option>
+									<option value="vehicles">Vehicles</option>
+									<option value="antiques">Antiques/ Artworks</option>
+									<option value="clothing">Clothing/ Bags</option>
+									<option value="jewerly">Jewerly/ Watches</option>
+									<option value="others">Others</option>
+								</select>
+							</div>
+
 				    		<div class="form-group">
 								<label for="itemName">Item Name</label>
 								<input class="form-control" id="itemName" placeholder="itemName">
@@ -186,13 +265,13 @@
 							</div>
 								    
 							<div class="form-group">
-								<label for="modelNumber">Model Number</label>
-								<input class="form-control" id="modelNumber" placeholder="modelNumber">
+								<label for="modelNumber">Model</label>
+								<input class="form-control" id="model" placeholder="Model">
 							</div>
 
 							<div class="form-group">
-								<label for="Manufacturer/ Brand">Manufacturer/ Brand</label>
-								<input class="form-control" id="Manufacturer" placeholder="manufacturer">
+								<label for="Manufacturer/ Brand">Make</label>
+								<input class="form-control" id="Manufacturer" placeholder="manufacturer/ Brand">
 							</div>
 
 							<div class="form-group">
@@ -206,8 +285,8 @@
 							</div>
 
 							<div class="form-group">
-								<label for="quantity">Quantity</label>
-								<input class="form-control" id="quantity" placeholder="quantity">
+								<label for="addInfo">Additional Information</label>
+								<textarea class="form-control" rows="3"></textarea>
 							</div>
 
 							<button type="submit" class="btn btn-default">
@@ -233,7 +312,7 @@
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	        		<center>
-	        			<h4 class="modal-title" id="insuranceInfoForm">Add an Insurance</h4>
+	        			<h4 class="modal-title" id="insuranceInfoForm">Add Insurance</h4>
 	        		</center>
 				</div>
 				
@@ -244,38 +323,43 @@
 						<!-- this is form for create an item -->
 						<form>
 				    		<div class="form-group">
-								<label for="itemName">Item Name</label>
-								<input class="form-control" id="itemName" placeholder="itemName">
+								<label for="insur_type">Insurance Type</label>
+								<input class="form-control" id="insur_type" placeholder="">
 							</div>
 
 							<div class="form-group">
-								<label for="serialNumber">Serial Number</label>
-								<input class="form-control" id="serialNumber" placeholder="serialNumber">
+								<label for="Company">Company Name</label>
+								<input class="form-control" id="companyName" placeholder="company">
 							</div>
 								    
 							<div class="form-group">
-								<label for="modelNumber">Model Number</label>
-								<input class="form-control" id="modelNumber" placeholder="modelNumber">
+								<label for="phoneNum">Phone Number</label>
+								<input class="form-control" id="phoneNum" placeholder="phoneNum">
 							</div>
 
 							<div class="form-group">
-								<label for="Manufacturer/ Brand">Manufacturer/ Brand</label>
-								<input class="form-control" id="Manufacturer" placeholder="manufacturer">
+								<label for="agent">Agent</label>
+								<input class="form-control" id="agent" placeholder="agent">
 							</div>
 
 							<div class="form-group">
-								<label for="price">Price</label>
-								<input class="form-control" id="price" placeholder="price">
+								<label for="policyNum">Policy Number</label>
+								<input class="form-control" id="policyNum" placeholder="policyNum">
 							</div>
 
 							<div class="form-group">
-								<label for="datePurchased">Date Purchased</label>
-								<input class="form-control" id="datePurchased" placeholder="datePurchased">
+								<label for="startDate">Start Date</label>
+								<input class="form-control" id="startDate" placeholder="startDate">
 							</div>
 
 							<div class="form-group">
-								<label for="quantity">Quantity</label>
-								<input class="form-control" id="quantity" placeholder="quantity">
+								<label for="insur_image">Insurance Image</label>
+								<input class="form-control" id="insur_image" placeholder="insur_image">
+							</div>
+							
+							<div class="form-group">
+								<label for="addInfo">Additional Information</label>
+								<textarea class="form-control" rows="3"></textarea>
 							</div>
 
 							<button type="submit" class="btn btn-default">
