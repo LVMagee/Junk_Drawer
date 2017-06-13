@@ -228,7 +228,7 @@
 							<div class="form-group">
 								<label for="itemName">
 								Category</label>
-								<select name="category">
+								<select name="category" id="category">
 									<option value="appliances">Appliances</option>
 									<option value="electronics">Electronics</option>
 									<option value="tools">Tools</option>
@@ -244,22 +244,22 @@
 								<label for="itemName">Item Name</label>
 								<input class="form-control" id="itemName" placeholder="itemName">
 							</div>
-
-							<div class="form-group">
-								<label for="serialNumber">Serial Number</label>
-								<input class="form-control" id="serialNumber" placeholder="serialNumber">
-							</div>
 								    
+							<div class="form-group">
+								<label for="Manufacturer/ Brand">Make</label>
+								<input class="form-control" id="make" placeholder="Manufacturer/ Brand">
+							</div>
+
 							<div class="form-group">
 								<label for="modelNumber">Model</label>
 								<input class="form-control" id="model" placeholder="Model">
 							</div>
-
+							
 							<div class="form-group">
-								<label for="Manufacturer/ Brand">Make</label>
-								<input class="form-control" id="Manufacturer" placeholder="manufacturer/ Brand">
+								<label for="serialNumber">Serial Number</label>
+								<input class="form-control" id="serialNumber" placeholder="serialNumber">
 							</div>
-
+								   
 							<div class="form-group">
 								<label for="price">Price</label>
 								<input class="form-control" id="price" placeholder="price">
@@ -267,12 +267,12 @@
 
 							<div class="form-group">
 								<label for="datePurchased">Date Purchased</label>
-								<input class="form-control" id="datePurchased" placeholder="datePurchased">
+								<input class="form-control" id="date" placeholder="Date Purchased">
 							</div>
 
 							<div class="form-group">
 								<label for="addInfo">Additional Information</label>
-								<textarea class="form-control" rows="3"></textarea>
+								<textarea class="form-control" rows="3" id="itemInfo"></textarea>
 							</div>
 
 							<button type="submit" class="btn btn-default">

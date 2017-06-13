@@ -25,7 +25,7 @@ module.exports = function(app){
 			email: req.body.email,
 			password: req.body.password,
 		
-		{
+		},{
 			where: {id: req.body.id}
 		}).then(function(owner){
 			res.json(owner);
