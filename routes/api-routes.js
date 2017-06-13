@@ -16,6 +16,7 @@ module.exports = function(app){
 	app.post("/api/assets", function(req,res){
 		db.Asset.create({
 
+			itemName: req.body.itemName,
 			category: req.body.category,
 			make: req.body.make,
 			model: req.body.model,
@@ -30,7 +31,32 @@ module.exports = function(app){
 		});
 	});
 	
-	//route to update asset
+	//route to UPDATE asset
+	app.put("/api/assets", function(req,res){
+		db.Asset.update(
+		{
+			itemName: req.body.itemName,
+			category: req.body.category,
+			make: req.body.category,
+			model: req.body.model,
+			serial_num: req.body.serial_num,
+			bought: req.body.bought,
+			price: req.body.price,
+			info: req.body.info
+		},
+		{
+			where: {id: req.body.id}
+		}).then(function(assets){
+			res.json(assets);
+		});
+	});
 
-	//route to delete asset
+	//route to DELETE asset
+	app.delete("/api/assets", function(req, res){
+		db.Asset.destroy({
+			where: {id: req.params.id}
+		}).then(function(assets){
+			res.json(assets);
+		});
+	});
 }
