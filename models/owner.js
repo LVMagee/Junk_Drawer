@@ -32,8 +32,6 @@ module.exports = function(sequelize, DataTypes) {
         cb(null, options);
       }
     },
-    
-  // timestamps: false
 
 });
 

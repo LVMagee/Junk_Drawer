@@ -44,6 +44,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.TEXT,
         },
 
+        inherit: {
+            type: DataTypes.STRING,
+        }
+
         asset_image: {
             type: DataTypes.STRING,
         }
