@@ -6,13 +6,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-	<link rel="stylesheet" href="../public/css/junkDrawer.css">
-
-	<!-- linking the JS pages -->
-	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<script src="../public/logjs/junkDrawer.js"></script>
+	<link rel="stylesheet" href="assets/css/junkDrawer.css">
 </head>
 <body>
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -126,22 +120,14 @@
 
 				<!-- the display table for the item list on the items tab-->
 				<center>
-    			<table id="itemList" class="table">
+    			<table id="itemList" class="table asset-container">
  					<thead>
  						<td>Id</td>
  						<td>Item Name</td>
  					</thead>
-
-	 				<tr class="itemRowClick">
-	 					<td>1</td>
-	 					<td>toaster</td>
-	 					<td>
-	 						<div id="manageLinks">
-	 							<span class="glyphicon glyphicon-pencil itemEdit" aria-hidden="true"></span><span class="glyphicon glyphicon-remove itemRemove" aria-hidden="true">
-	 							</span>
-	 						</div>
-	 					</td>
-	 				</tr>
+ 					
+					<!--list of assets will populate here-->
+					
 				</table>
 				</center>
 
@@ -290,5 +276,11 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- =====================linking the JS pages ==============================-->
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="assets/js/junkDrawer.js"></script>
 </body>
 </html>

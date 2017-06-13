@@ -6,6 +6,11 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         },
 
+        category: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+
         make: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -46,9 +51,9 @@ module.exports = function(sequelize, DataTypes) {
 
         inherit: {
             type: DataTypes.STRING,
-        }
+        },
 
-        asset_image: {
+        image: {
             type: DataTypes.STRING,
         }
 

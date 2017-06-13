@@ -2,9 +2,9 @@ $(document).ready(function() {
 
 	var assetContainer = $(".asset-container");
 
-	$(document).on("click", "href.items", displayAssets);
-
 	var assets;
+
+	displayAssets();
 
 	$( "#createLogin" ).click(function() {
 		$( "#createAccountForm" ).show();
@@ -37,25 +37,46 @@ $(document).ready(function() {
 	}
 
 	function initializeRows() {
-	    assetContainer.empty();
 	    var rowsToAdd = [];
 	    for (var i = 0; i < assets.length; i++) {
 	      rowsToAdd.push(createNewRow(assets[i]));
 	    }
 
-	    assetContainer.prepend(rowsToAdd);
+	    assetContainer.append(rowsToAdd);
 	}
 
   	// This function constructs a asset row
 	function createNewRow(asset) {
 
-	    var newInputRow = $("<li>");
-	    newInputRow.addClass("asset-item");
+	    var newItemRow = $("<tr>");
+	    newItemRow.addClass("itemRowClick");
 
-	    var newTodoSpan = $("<span>");
-	    newTodoSpan.text(asset.model);
-	    newInputRow.append(newTodoSpan);
+	    var newIndex = $("<td>");
+	    newIndex.text(asset.id);
+	    newItemRow.append(newIndex);
 
-	    return newInputRow;
+	    var newAsset = $("<td>");
+	    newAsset.text(asset.itemName);
+	    newItemRow.append(newAsset);
+
+	    var newLinkRowContainer = $("<td>");
+
+	    var newLinksRow = $("<div>");
+	    newLinksRow.attr("id", "manageLinks")
+	    newLinkRowContainer.append(newLinksRow);
+
+	    var editIcon = $("<span>");
+	    editIcon.addClass("glyphicon glyphicon-pencil itemEdit");
+	    editIcon.attr("aria-hidden", "true");
+	    newLinksRow.append(editIcon);
+
+	    var deleteIcon = $("<span>");
+	    deleteIcon.addClass("glyphicon glyphicon-remove itemRemove");
+	    deleteIcon.data("id", asset.id);
+	    newLinksRow.append(deleteIcon);
+
+	    newItemRow.append(newLinkRowContainer);
+
+	    return newItemRow;
   	}
 });
