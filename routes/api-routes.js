@@ -29,4 +29,8 @@ module.exports = function(app){
 			res.json(assets);
 		});
 	});
+	
+	//route to update asset
+
+	//route to delete asset
 }
