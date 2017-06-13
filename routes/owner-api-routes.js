@@ -9,14 +9,8 @@ module.exports = function(app){
 	app.post("/api/owner", function(req,res){
 		db.Owner.create({
 
-			itemName: req.body.itemName,
-			category: req.body.category,
-			make: req.body.make,
-			model: req.body.model,
-			serial_num: req.body.serial_num,
-			bought: req.body.bought,
-			price: req.body.price,
-			info: req.body.info
+			email: req.body.email,
+			password: req.body.password
 
 		}).then(function(owner){
 			
@@ -28,15 +22,9 @@ module.exports = function(app){
 	app.put("/api/owner", function(req,res){
 		db.Owner.update(
 		{
-			itemName: req.body.itemName,
-			category: req.body.category,
-			make: req.body.category,
-			model: req.body.model,
-			serial_num: req.body.serial_num,
-			bought: req.body.bought,
-			price: req.body.price,
-			info: req.body.info
-		},
+			email: req.body.email,
+			password: req.body.password,
+		
 		{
 			where: {id: req.body.id}
 		}).then(function(owner){

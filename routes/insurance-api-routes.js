@@ -33,14 +33,13 @@ module.exports = function(app){
 	app.put("/api/insurance", function(req,res){
 		db.Insurance.update(
 		{
-			itemName: req.body.itemName,
-			category: req.body.category,
-			make: req.body.category,
-			model: req.body.model,
-			serial_num: req.body.serial_num,
-			bought: req.body.bought,
-			price: req.body.price,
-			info: req.body.info
+			insurance_type: req.body.insurance_type,
+			company: req.body.company,
+			phone_num: req.body.phone_num,
+			agent: req.body.agent,
+			policy_num: req.body.policy_num,
+			start_date: req.body.start_date,
+			imag_link: req.body.imag_link
 		},
 		{
 			where: {id: req.body.id}
