@@ -6,7 +6,7 @@ $(document).ready(function() {
 	});
 
 	$( ".itemRowClick" ).click(function() {
-		$( "#itemDetail" ).slideDown(1000);
+		$( "#itemDetail" ).toggle(1000);
 		// show the details of this particular item within the div
 	});
 

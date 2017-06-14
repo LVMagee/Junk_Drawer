@@ -55,10 +55,21 @@ module.exports = function(sequelize, DataTypes) {
 
         image: {
             type: DataTypes.STRING,
+        },
+
+        {
+      
+      classMethods: {
+        associate: function(models) {
+         
+          Asset.belongsTo(models.Owner, {
+            foreignKey: {
+              allowNull: false
+            }
+          });
         }
-
-
-    });
+      }
+  });
 
     return Asset;
 };

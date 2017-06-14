@@ -20,18 +20,29 @@ module.exports = function(sequelize, DataTypes) {
 
 },{
 
-     instanceMethods: {
-      validPassword: function(password) {
-        return bcrypt.compareSync(password, this.password);
-      }
-    },
+ instanceMethods: {
+  validPassword: function(password) {
+    return bcrypt.compareSync(password, this.password);
+  }
+},
 
-    hooks: {
-      beforeCreate: function(owner, options, cb) {
-        owner.password = bcrypt.hashSync(owner.password, bcrypt.genSaltSync(10), null);
-        cb(null, options);
-      }
-    },
+hooks: {
+  beforeCreate: function(owner, options, cb) {
+    owner.password = bcrypt.hashSync(owner.password, bcrypt.genSaltSync(10), null);
+    cb(null, options);
+  }
+},
+
+{
+
+  classMethods: {
+    associate: function(models) {
+
+      Owner.hasMany(models.Asset, {
+        onDelete: "cascade"
+      });
+    }
+  }
 
 });
 
