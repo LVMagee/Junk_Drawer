@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   displayInsurance();
 
-  //will retrieve insurance information from database and display insurance when insurance tab is clicked
+  //will retrieve insurance information from database and display list insurance when insurance tab is clicked
   //====================================================================
   //====================================================================
   var insuranceContainer = $(".insurance-container");
@@ -63,8 +63,11 @@ $(document).ready(function(){
       return newItemRow;
   }
 
+  //code to display full insurance info when insurance row is clicked
+  //=================================================================
+  //=================================================================
 
-  //Code to submit new insurance to data base via insurance form
+  //Code to submit new insurance to database via insurance form
   //======================================================================
   //======================================================================
 	$(document).on("submit", "#insurance-form", insertInsurance);
@@ -72,7 +75,7 @@ $(document).ready(function(){
   //function to add insurance to the database
   function insertInsurance(event) {
     event.preventDefault();
-    // if (!newItemInput.val().trim()) {   return; }
+
     var insurance = {
       insur_type: $("#insur_type").val().trim(),
       company: $("#companyName").val().trim(),
@@ -100,7 +103,7 @@ $(document).ready(function(){
   //code to update insurance when edit icon is clicked
   //=================================================================
   //=================================================================
-  
+
 
   //code to delete insurance when delete icon in clicked
   //=================================================================
