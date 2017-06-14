@@ -15,13 +15,13 @@ module.exports = function(app){
 	app.post("/api/insurance", function(req,res){
 		db.Insurance.create({
 
-			insurance_type: req.body.insurance_type,
+			insur_type: req.body.insure_type,
 			company: req.body.company,
 			phone_num: req.body.phone_num,
 			agent: req.body.agent,
 			policy_num: req.body.policy_num,
 			start_date: req.body.start_date,
-			imag_link: req.body.imag_link
+			info: req.body.info
 
 		}).then(function(insurance){
 			
@@ -33,13 +33,13 @@ module.exports = function(app){
 	app.put("/api/insurance", function(req,res){
 		db.Insurance.update(
 		{
-			insurance_type: req.body.insurance_type,
+			insur_type: req.body.insure_type,
 			company: req.body.company,
 			phone_num: req.body.phone_num,
 			agent: req.body.agent,
 			policy_num: req.body.policy_num,
 			start_date: req.body.start_date,
-			imag_link: req.body.imag_link
+			info: req.body.info
 		},
 		{
 			where: {id: req.body.id}
