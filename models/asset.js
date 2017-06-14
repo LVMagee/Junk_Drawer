@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 len: [3]
-            }
+            },
         },
 
         model: {
@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 len: [1]
-            }   
+            },   
         },
 
         bought: {
@@ -69,6 +69,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
     });
+
 
     return Asset;
 };
