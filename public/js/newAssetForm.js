@@ -27,7 +27,7 @@ $(document).ready(function(){
     $("#make").val("");
     $("#model").val("");
     $("#serialNumber").val("");
-    $("#data").val("");
+    $("#date").val("");
     $("#price").val("");
     $("#itemInfo").val("");
   }
