@@ -29,7 +29,7 @@ $(document).ready(function(){
   }
 
     // This function constructs a new insurance row for each insurance user has submitted
-  function createNewInsuranceRow(asset) {
+  function createNewInsuranceRow(insurance) {
 
       var newItemRow = $("<tr>");
       newItemRow.addClass("itemRowClick");

@@ -106,10 +106,23 @@ $(document).ready(function(){
   //code to update asset when edit icon is clicked
   //=================================================================
   //=================================================================
-  
+
 
   //code to delete asset when delete icon in clicked
   //=================================================================
   //=================================================================
+  $(document).on("click", ".itemRemove", deleteAsset);
 
+  //function to remove asset from the database
+  function deleteAsset(event) {
+    var id = $(this).data("id")
+
+    $.ajax({
+      method: "DELETE",
+      url: "/api/assets" + id
+    }).done(function(){
+
+      displayAssets();
+    });
+  }
 });
