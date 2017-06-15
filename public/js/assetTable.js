@@ -35,6 +35,7 @@ $(document).ready(function(){
 
       var newItemRow = $("<tr>");
       newItemRow.addClass("itemRowClick");
+      newItemRow.data("asset", asset);
 
       var newIndex = $("<td>");
       newIndex.text(asset.id);
