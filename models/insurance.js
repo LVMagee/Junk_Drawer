@@ -27,7 +27,10 @@ module.exports = function(sequelize, DataTypes) {
 
 		agent: {
 			type: DataTypes.STRING,
-	
+			alllowNull: false,
+			validate: {
+				len: [1]
+			}
 		},
 
 		policy_num: {
@@ -46,11 +49,22 @@ module.exports = function(sequelize, DataTypes) {
 			}
 		},
 
-		ins_image: {
-			type: DataTypes.STRING,
-		}
-	
-	});
+		info: {
+			type: DataTypes.TEXT,
+		},
+	},
+		{
+			classMethods: {
+				associate: function(models) {
+
+					Insurance.belongsTo(models.Owner, {
+						foreignKey: {
+							allowNull: false
+						}
+					});
+				}
+			}
+		});
 
 	return Insurance;
 };

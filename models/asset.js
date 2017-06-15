@@ -1,6 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
     var Asset = sequelize.define("Asset", {
 
+        itemName: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+
         category: {
             type: DataTypes.STRING,
             allowNull: false
@@ -11,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 len: [3]
-            }
+            },
         },
 
         model: {
@@ -23,18 +28,20 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 len: [1]
-            }   
+            },   
         },
 
         bought: {
             type: DataTypes.DATEONLY,
-            allowNull: false
+            allowNull: false,
+            isDate: true, 
             
         },
 
         price: {
             type: DataTypes.DECIMAL,
-            allowNull: false
+            allowNull: false,
+            isDecimal: true,
 
         },
 
@@ -42,11 +49,28 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.TEXT,
         },
 
-        asset_image: {
-            type: DataTypes.STRING,
+        // inherit: {
+        //     type: DataTypes.STRING,
+        // },
+
+        // image: {
+        //     type: DataTypes.STRING,
+        // }
+    },
+    {
+        classMethods: {
+            associate: function(models) {
+         
+                Asset.belongsTo(models.Owner, {
+        
+                    foreignKey: {
+                      allowNull: false
+                    }
+                });
+            }
         }
-    
-  });
+    });
+
 
     return Asset;
 };
