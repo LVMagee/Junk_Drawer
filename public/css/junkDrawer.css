@@ -11,10 +11,10 @@ thead {
 	font-weight: bolder;
 }
 
-.landingBody {
+/*.landingBody {
 	position: relative;
 	top: 50%;
-}
+}*/
 
 /* this is styling the div which pops up when the create account button is clicked on the homepage */
 #createAccountForm {
@@ -27,8 +27,9 @@ thead {
 /* this is styling the title for the Project Name */
 #landingPageTitle {
 	font-size: 50px;
-	position: relative;
-	bottom: 50%;
+	margin-top: 15%;
+	/*position: relative;
+	bottom: 50px;*/
 }
 
 #projectName {

@@ -1,22 +1,9 @@
 $(document).ready(function() {
-
-
-	// $( "#createLogin" ).click(function() {
-	// 	$( "#createAccountForm" ).show();
-	// });
-
-	$( ".itemRowClick" ).click(function() {
-		$( "#itemDetail" ).toggle(1000);
-		// show the details of this particular item within the div
+	$(".itemRowClick").click(function(){
+		// $("#itemDetail").toggle("blind", 1000);
+		alert("it works");
 	});
 
-	// $( ".itemEdit" ).click(function() {
-	//   $( "#itemDetail" ).slideDown(1000);
-	// 	// show the details of this particular item within the div
-	// 	// this will 
-	// });
+	alert("does this javascript file link up");
 
-	// $( ".itemRowClick" ).click(function() {
-	//  	// she
-	// });
 });
