@@ -21,6 +21,7 @@ $(document).ready(function(){
   }
 
   function initializeRows() {
+      assetContainer.empty();
       var rowsToAdd = [];
       for (var i = 0; i < assets.length; i++) {
         rowsToAdd.push(createNewRow(assets[i]));
@@ -114,12 +115,12 @@ $(document).ready(function(){
   $(document).on("click", ".itemRemove", deleteAsset);
 
   //function to remove asset from the database
-  function deleteAsset(event) {
-    var id = $(this).data("id")
+  function deleteAsset() {
+    var id = $(this).data("id");
 
     $.ajax({
       method: "DELETE",
-      url: "/api/assets" + id
+      url: "/api/assets/" + id
     }).done(function(){
 
       displayAssets();
