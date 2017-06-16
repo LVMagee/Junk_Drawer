@@ -115,9 +115,8 @@ thead {
 	position: fixed;
 	bottom: 0;
 	display: none;
-	border-top: .25px solid #000;
 	overflow: scroll;
-	background-color: #fff;
+	background-color: #BADA55;
 }
 
 /* this is styling the layout of the details page */
@@ -126,16 +125,6 @@ thead {
 	right: 1%;
 	top: 1%;
 }
-
-/*.make {
-	position: absolute;
-	left: 0;
-}
-
-.serial {
-	position: absolute;
-	right: 0;
-}*/
 
 /* this is styling the various forms found within our page */
 #insuranceInfoForm {

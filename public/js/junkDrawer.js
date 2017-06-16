@@ -1,9 +1,16 @@
-$(document).ready(function() {
-	$(".itemRowClick").click(function(){
-		// $("#itemDetail").toggle("blind", 1000);
-		alert("it works");
+$(document).ready(function(){
+	$(document).on('click','.itemRowClick',function(){
+		$("#itemDetail").fadeIn();
 	});
 
-	alert("does this javascript file link up");
+	$(".alphabet").click(function(){
+		
+	});
 
+	$("#closeItemDetail").click(function(){
+		$("#itemDetail").hide();
+	});
+
+	alert("the javascript page works")
 });
+
