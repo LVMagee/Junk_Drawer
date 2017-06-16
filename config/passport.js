@@ -11,13 +11,13 @@ passport.use(new LocalStrategy(
   },
   function(email, password, done) {
     // When a owner tries to sign in this code runs
-    db.owner.findOne({
+    db.Owner.findOne({
       where: {
         email: email
       }
     }).then(function(dbOwner) {
       // If there's no owner with the given email
-      if (!dbowner) {
+      if (!dbOwner) {
         return done(null, false, {
           message: "Incorrect email."
         });

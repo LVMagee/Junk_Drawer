@@ -7,3 +7,5 @@ USE Assets_DB;
 
 SET SQL_MODE = '';
 
+-- SET TIMESTAMP: DEFAULT;
+
