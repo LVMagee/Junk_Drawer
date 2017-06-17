@@ -48,16 +48,19 @@ $(document).ready(function(){
       var newLinkRowContainer = $("<td>");
 
       var newLinksRow = $("<div>");
-      newLinksRow.attr("id", "manageLinks")
+      newLinksRow.attr("id", "manageLinks");
       newLinkRowContainer.append(newLinksRow);
 
       var editIcon = $("<span>");
       editIcon.addClass("glyphicon glyphicon-pencil itemEdit");
       editIcon.attr("aria-hidden", "true");
+      editIcon.attr("id", "icons");
+      editIcon.data("asset", asset);
       newLinksRow.append(editIcon);
 
       var deleteIcon = $("<span>");
       deleteIcon.addClass("glyphicon glyphicon-remove itemRemove");
+      deleteIcon.attr("id", "icons");
       deleteIcon.data("id", asset.id);
       newLinksRow.append(deleteIcon);
 
@@ -196,6 +199,73 @@ $(document).ready(function(){
   //code to update asset when edit icon is clicked
   //=================================================================
   //=================================================================
+  $(document).on("click", ".itemEdit", editAsset);
+
+  // This function handles showing the input box for a user to edit an asset
+  function editAsset() {
+    var currentAsset = $(this).data("asset");
+    $(this)
+      .children()
+      .hide();
+    $(this)
+      .children("input.edit")
+      .val(currentAsset.text);
+    $(this)
+      .children("input.edit")
+      .show();
+    $(this)
+      .children("input.edit")
+      .focus();
+  }
+
+  // This function starts updating an asset in the database if a user hits the
+  // "Enter Key" While in edit mode
+  function finishEdit(event) {
+    var updatedAsset;
+    if (event.key === "Enter") {
+      updatedAsset = {
+        id: $(this)
+          .data("todo")
+          .id,
+        text: $(this)
+          .children("input")
+          .val()
+          .trim()
+      };
+      $(this).blur();
+      updateAsset(updatedAsset);
+    }
+  }
+
+  // This function updates assets in our database
+  function updateAsset(asset) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/assets",
+      data: asset
+    })
+    .done(function() {
+      displayAssets();
+    });
+  }
+
+  // This function is called whenever a asset item is in edit mode and loses focus
+  // This cancels any edits being made
+  function cancelEdit() {
+    var currentAsset = $(this).data("asset");
+    $(this)
+      .children()
+      .hide();
+    $(this)
+      .children("input.edit")
+      .val(currentTodo.text);
+    $(this)
+      .children("span")
+      .show();
+    $(this)
+      .children("button")
+      .show();
+  }
 
 
   //code to delete asset when delete icon in clicked
