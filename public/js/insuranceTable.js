@@ -20,6 +20,7 @@ $(document).ready(function(){
   }
 
   function initializeInsuranceRows() {
+      insuranceContainer.empty();
       var rowsToAdd = [];
       for (var i = 0; i < insurances.length; i++) {
         rowsToAdd.push(createNewInsuranceRow(insurances[i]));
@@ -56,11 +57,7 @@ $(document).ready(function(){
       newPanelHeadingTitleText.text(insurance.company);
       newPanelHeadingTitle.append(newPanelHeadingTitleText);
 
-      var deleteInsuranceIcon = $("<span>");
-      deleteInsuranceIcon.addClass("glyphicon glyphicon-remove insuranceRemove");
-      deleteInsuranceIcon.data("id", insurance.id);
-      newPanelHeadingTitleText.append(deleteInsuranceIcon);
-
+  
       var newCollapsePanel = $("<div>");
       newCollapsePanel.attr("id", "collapseOne" + x);
       newCollapsePanel.addClass("panel-collapse collapse in");
@@ -153,6 +150,12 @@ $(document).ready(function(){
       editInsuranceIcon.attr("aria-hidden", "true");
       newCenter.append(editInsuranceIcon);
 
+      var deleteInsuranceIcon = $("<span>");
+      deleteInsuranceIcon.addClass("glyphicon glyphicon-remove insuranceRemove");
+      deleteInsuranceIcon.data("id", insurance.id);
+      newCenter.append(deleteInsuranceIcon);
+
+
       return newInsuranceRow;
   }
 
@@ -197,4 +200,18 @@ $(document).ready(function(){
   //code to delete insurance when delete icon in clicked
   //=================================================================
   //=================================================================
+  $(document).on("click", ".insuranceRemove", deleteInsurance);
+
+  //function to remove asset from the database
+  function deleteInsurance() {
+    var id = $(this).data("id");
+
+    $.ajax({
+      method: "DELETE",
+      url: "/api/insurance/" + id
+    }).done(function(){
+
+      displayInsurance();
+    });
+  }
 });
