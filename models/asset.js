@@ -56,18 +56,6 @@ module.exports = function(sequelize, DataTypes) {
         // image: {
         //     type: DataTypes.STRING,
         // }
-    },
-    {
-        classMethods: {
-            associate: function(models) {
-         
-                Asset.belongsTo(models.User, {
-                    foreignKey: {
-                      allowNull: false
-                    }
-                });
-            }
-        }
     });
 
 
