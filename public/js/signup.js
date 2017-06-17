@@ -30,7 +30,7 @@ $(document).ready(function() {
     }).then(function(data) {
       window.location.replace("home");
     }).catch(function(err) {
-      console.log(err);
+//       console.log(err);
     });
   }
 
