@@ -11,11 +11,6 @@ thead {
 	font-weight: bolder;
 }
 
-/*.landingBody {
-	position: relative;
-	top: 50%;
-}*/
-
 /* this is styling the div which pops up when the create account button is clicked on the homepage */
 #createAccountForm {
 	display: none;	
@@ -28,8 +23,6 @@ thead {
 #landingPageTitle {
 	font-size: 50px;
 	margin-top: 15%;
-	/*position: relative;
-	bottom: 50px;*/
 }
 
 #projectName {
@@ -135,6 +128,10 @@ thead {
 }
 
 /* this is styling the various forms found within our page */
+.insuranceRemove {
+	margin-left: 8px;
+}
+
 #insuranceInfoForm {
 	padding: 10px;
 	overflow: scroll;
