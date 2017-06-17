@@ -62,7 +62,7 @@ $(document).ready(function(){
           var letter = $(this).value;
           for (var i = 0; i < assets.length; i++){
             // var letter = this.value;
-            if ( letter = assets[i].itemName.charAt(0).toLowerCase() ){
+            if ( letter = assets[i].itemName.startsWith().toLowerCase() ){
               assetContainer.empty();
               var specificSearch = [];
               specificSearch.push(createNewRow(assets[i]));
