@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <html>
 <head>
   <title>Login</title>
@@ -10,63 +11,61 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/junkDrawer.css">
-  <!-- <link href="assets/css/style.css" rel="stylesheet"> -->
+ 
 
   <!-- linking the JS pages -->
   <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src="assets/js/junkDrawer.js"></script>
+  
 </head>
 <body>
-<div class=row>
-  <div class="col-md-4">
+  <div class=row>
+    <div class="col-md-4">
+    </div>
+
+    <div class="col-md-4 landingBody">
+      <center>
+        <div id="landingPageTitle">
+          Junk Drawer
+        </div>
+
+      </center>
+      <center>
+
+        <nav class="navbar">
+          <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+          </div>
+        </nav>          
+        <h3>Login Form</h3>
+
+        <form class="login">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="email-input" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="password-input" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-default">Log In</button>
+        </form>
+        <br />
+        <p>Or Sign Up <a href="/">here</a></p>
+
+      </div>
+    </div>
   </div>
 
-  <div class="col-md-4 landingBody">
-    <center>
-      <div id="landingPageTitle">
-        Junk Drawer
-      </div>
 
-    </center>
-    <center>
+  <script type="text/javascript" src="assets/js/login.js"></script>
+  <script src="assets/js/junkDrawer.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-    <nav class="navbar">
-        <div class="container-fluid">
-          <div class="navbar-header">
-          </div>
-        </div>
-    </nav>
-    <!-- <div class="container"> -->
-          
-            <h3>Log In</h3>
-
-            <form class="login">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="email-input" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="password-input" placeholder="Password">
-              </div>
-              <button type="submit" class="btn btn-default">Log In</button>
-            </form>
-            <br />
-            <p>Or Sign Up <a href="index.html">here</a></p>
-
-    <!-- </div> -->
-
-          </div>
-        </div>
-      </div>
-
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="assets/js/login.js"></script>
-
-    </center>
-  </div>
+</center>
+</div>
 
 </body>
 </html>
