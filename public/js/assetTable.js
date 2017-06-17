@@ -69,6 +69,94 @@ $(document).ready(function(){
   //code to display full asset information when asset row is clicked
   //=================================================================
   //=================================================================
+  $(document).on("click", ".itemRowClick", fullAssestDisplay);
+  $(document).on("click", "#closeItemDetail", emptyAssets);
+
+  var items = $(".items");
+
+  //function to retreieve full asset details
+  function fullAssestDisplay(){
+    var thisAsset = $(this).data("asset");
+
+    var categoryTag = $("<h4>");
+    categoryTag.text("Category:");
+    var categoryText = $("<div>");
+    categoryText.attr("id", "displayCategory");
+    categoryText.text(thisAsset.category);
+    categoryTag.append(categoryText);
+    items.append(categoryTag);
+
+    var break1 = $("<br>");
+    items.append(break1);
+
+    var makeTag = $("<h4>");
+    makeTag.text("Manufacturer/Brand:");
+    var makeText = $("<div>");
+    makeText.attr("id", "displayMake");
+    makeText.text(thisAsset.make);
+    makeTag.append(makeText);
+    items.append(makeTag);
+
+    var break2 = $("<br>");
+    items.append(break2);
+
+    var modelTag = $("<h4>");
+    modelTag.text("Model:");
+    var modelText = $("<div>");
+    modelText.attr("id", "displayModel");
+    modelText.text(thisAsset.model);
+    modelTag.append(modelText);
+    items.append(modelTag);
+
+    var break3 = $("<br>");
+    items.append(break3);
+
+    var serialNumTag = $("<h4>");
+    serialNumTag.text("Serial Number:");
+    var serialNumText = $("<div>");
+    serialNumText.attr("id", "displaySerialNum");
+    serialNumText.text(thisAsset.serial_num);
+    serialNumTag.append(serialNumText);
+    items.append(serialNumTag);
+
+    var break4 = $("<br>");
+    items.append(break4);
+
+    var priceTag = $("<h4>");
+    priceTag.text("Price:");
+    var priceText = $("<div>");
+    priceText.attr("id", "displayPrice");
+    priceText.text(thisAsset.price);
+    priceTag.append(priceText);
+    items.append(priceTag);
+
+    var break5 = $("<br>");
+    items.append(break5);
+
+    var datePurchasedTag = $("<h4>");
+    datePurchasedTag.text("Date Purchased:");
+    var datePurchasedText = $("<div>");
+    datePurchasedText.attr("id", "displayDatePurchased");
+    datePurchasedText.text(thisAsset.bought);
+    datePurchasedTag.append(datePurchasedText);
+    items.append(datePurchasedTag);
+
+    var break6 = $("<br>");
+    items.append(break6);
+
+    var infoTag = $("<h4>");
+    infoTag.text("Additional Comments:");
+    var infoText = $("<div>");
+    infoText.attr("id", "displayInfo");
+    infoText.text(thisAsset.info);
+    infoTag.append(infoText);
+    items.append(infoTag);
+  }
+
+  //to empty out panel containing asset info when panel is closed
+  function emptyAssets(){
+    $(".items").empty();
+  }
 
   //Code to submit new asset to database via asset form
   //======================================================================
