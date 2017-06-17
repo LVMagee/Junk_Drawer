@@ -55,34 +55,45 @@ $(document).ready(function(){
 
     var assetContainer = $(".asset-container");
     var assets;
+    var specificSearch;
+
+    // var element = document.getElementsByClassName("alphabet");
+    // element.onclick = search();
 
     function search(){
       $.get("/api/assets", function(data) {
             console.log("Assets", data);
             assets = data;
-      }).then(
-
-        $(document).on("click", ".alphabet", function(){
-          var letter = $(this).value;
-          for (var i = 0; i < assets.length; i++){
-            // var letter = this.value;
-            if ( letter = assets[i].itemName.startsWith().toLowerCase() ){
-              assetContainer.empty();
-              var specificSearch = [];
-              specificSearch.push(createNewRow(assets[i]));
+      }.then(function(){
+        assetContainer.empty();
+            for (var i= 0; i< assets.length; i++){
+              var letter = $(".alphabet").value;
+              if (letter == assets[i].itemName.charAt(0).toLowerCase() ) {
+                // assetContainer.empty();
+                // createNewRow();
+                assetContainer.append(createNewRow());
+              }
             }
-          }
-          assetContainer.append(specificSearch);
         })
+          // assetContainer.append(specificSearch);
       );
+      
       
     };
 
-    var x = document.getElementsByClassName("alphabet");
+    // function makeSpecificRow(){
+    //   var letter = $(".alphabet").value;
+    //   for (var i= 0; i< assets.length; i++){
+    //     if (letter == assets[i].itemName.charAt(0).toLowerCase() ) {
+    //       assetContainer.empty();
+    //       createNewRow();
+    //     }
+    //   };
+    // };
 
-    x.addEventListener("click", search());
-
-
+    $(document).on("click", ".alphabet", function(){
+      search(this);
+    });
 
 });
 
