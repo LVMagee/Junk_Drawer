@@ -15,11 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    userName: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
+   
     
 }, {
      // This will check if an unhashed password entered by
