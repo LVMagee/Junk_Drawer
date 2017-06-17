@@ -78,11 +78,13 @@ $(document).ready(function(){
       
     };
 
-    
-    search();
+    var x = document.getElementsByClassName("alphabet");
+
+    x.addEventListener("click", search());
 
 
 
 });
+
 
 
