@@ -32,7 +32,7 @@ module.exports = function(sequelize, DataTypes) {
         },
 
         bought: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             allowNull: false,
             isDate: true, 
             

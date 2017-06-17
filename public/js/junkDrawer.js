@@ -3,20 +3,9 @@ $(document).ready(function(){
 	var nav = document.getElementById("navBar")
 
 	$(document).on('click','.itemRowClick',function(){
-
-		document.getElementById("icons").onClick = function(){
-
-			var deleteClick = document.getElementById("icons");
-
-			if (deleteClick.clicked = true){
-
-			}else{
-				
-				$("#itemDetail").toggle("blind", 1000);
-				nav.style.opacity = 0.25;
-				$("#displayItemName").empty();
-			}
-		}
+		$("#itemDetail").toggle("blind", 1000);
+		nav.style.opacity = 0.25;
+		$("#displayItemName").empty();
 	});
 
 	$("#closeItemDetail").click(function(){
@@ -24,27 +13,7 @@ $(document).ready(function(){
 		nav.style.opacity = 1;
 	});
 
-	function displayAssets(){
-
-	    $.get("/api/assets", function(data) {
-
-	        console.log("Assets", data);
-	        assets = data;
-	        initializeRows();
-	    });
-	}
-
-  function initializeRows() {
-      assetContainer.empty();
-      var rowsToAdd = [];
-      for (var i = 0; i < assets.length; i++) {
-        rowsToAdd.push(createNewRow(assets[i]));
-      }
-
-      assetContainer.append(rowsToAdd);
-  }
-
-    // This function constructs a asset row
+  // This function constructs a asset row
   function createNewRow(asset) {
 
       var newItemRow = $("<tr>");
@@ -81,25 +50,32 @@ $(document).ready(function(){
     }
 
     var assetContainer = $(".asset-container");
-    
-    function search(){
-		$.get("/api/assets", function(data) {
-	        assets = data;
-	        var specificSearch = [];
-		    for (var i = 0; i < assets.length; i++){
-		        if ($('.alphabet').val() === assets[i].itemName.charAt(0) ){
-		    		console.log(alphabetValue);
-		    		console.log(assets[i].itemName);
-		    		specificSearch.push(createNewRow(assets[i]));
-		    	}
-		    }
-	    });
-	}
+    var assets;
 
-    	$(".alphabet").click(function(){
-    		assetContainer.empty();
-    		search();
-		});
+    function search(){
+      $.get("/api/assets", function(data) {
+            assets = data;
+            appendRows();
+      })
+    };
+
+    function appendRows(){
+      assetContainer.empty();
+      var specificSearch = [];
+      for (var i = 0; i < assets.length; i++){
+        specificSearch.push(createNewRow(assets[i]));
+      }
+      assetContainer.append(specificSearch);
+    };
+
+    	$(document).on("click", ".alphabet", function(){
+        var letter = this.value;
+      		if ( letter = assets.itemName.charAt(0) ){
+            search();
+          };
+        
+      });
+
 
 
 });
