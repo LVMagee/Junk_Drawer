@@ -100,7 +100,7 @@ $(document).ready(function(){
     		assetContainer.empty();
     		search();
 		});
->>>>>>> Development
+
 
 });
 
