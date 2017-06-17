@@ -61,8 +61,7 @@ module.exports = function(sequelize, DataTypes) {
         classMethods: {
             associate: function(models) {
          
-                Asset.belongsTo(models.Owner, {
-        
+                Asset.belongsTo(models.User, {
                     foreignKey: {
                       allowNull: false
                     }

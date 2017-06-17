@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 	var nav = document.getElementById("navBar")
 
@@ -74,6 +75,7 @@ $(document).ready(function(){
           };
         
       });
+
 
 
 });

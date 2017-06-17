@@ -1,36 +1,38 @@
 $(document).ready(function() {
-  // Getting references to our form and inputs
-  var submitForm = $("form.signUp");
-  var emailInput = $("#newEmail");
-  var passwordInput = $("#newPassword");
+  // Getting references to our form and input
+  var signUpForm = $("form.signup");
+  var emailInput = $("input#email-input");
+  var passwordInput = $("input#password-input");
 
-  //code to submit new user to database
-  //=================================================================
-  //=================================================================
-  // When the form is submitted, we validate there's an email and password entered
-  $(document).on("submit", "#signUp", createOwner);
-
-  function createOwner(event) {
+  // When the signup button is clicked, we validate the email and password are not blank
+  signUpForm.on("submit", function(event) {
     event.preventDefault();
-
-    var ownerData = {
-
+    var userData = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
-
     };
 
-    if (!ownerData.email || !ownerData.password) {
+    if (!userData.email || !userData.password) {
       return;
-    };
+    }
+    // If we have an email and password, run the signUpUser function
+    signUpUser(userData.email, userData.password);
+    emailInput.val("");
+    passwordInput.val("");
+  });
 
-    // If we have an email and password we run the loginUser function and clear the form
-    $.post("/api/owner", ownerData, function(){
-
-      emailInput.val("");
-      passwordInput.val("");
+  // Does a post to the signup route. If succesful, we are redirected to the members page
+  // Otherwise we log any errors
+  function signUpUser(email, password) {
+    $.post("/api/signup", {
+      email: email,
+      password: password
+    }).then(function(data) {
+      window.location.replace("home");
+    }).catch(function(err) {
+      console.log(err);
     });
   }
-  
+
 });
 
