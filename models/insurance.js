@@ -52,19 +52,7 @@ module.exports = function(sequelize, DataTypes) {
 		info: {
 			type: DataTypes.TEXT,
 		},
-	},
-		{
-			classMethods: {
-				associate: function(models) {
-
-					Insurance.belongsTo(models.User, {
-						foreignKey: {
-							allowNull: false
-						}
-					});
-				}
-			}
-		});
+	});
 
 	return Insurance;
 };
