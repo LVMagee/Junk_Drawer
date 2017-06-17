@@ -53,27 +53,28 @@ $(document).ready(function(){
 
     function search(){
       $.get("/api/assets", function(data) {
+            console.log("Assets", data);
             assets = data;
-            appendRows();
-      })
+      }).then(
+
+        $(document).on("click", ".alphabet", function(){
+          var letter = $(this).value;
+          for (var i = 0; i < assets.length; i++){
+            // var letter = this.value;
+            if ( letter = assets[i].itemName.charAt(0).toLowerCase() ){
+              assetContainer.empty();
+              var specificSearch = [];
+              specificSearch.push(createNewRow(assets[i]));
+            }
+          }
+          assetContainer.append(specificSearch);
+        })
+      );
+      
     };
 
-    function appendRows(){
-      assetContainer.empty();
-      var specificSearch = [];
-      for (var i = 0; i < assets.length; i++){
-        specificSearch.push(createNewRow(assets[i]));
-      }
-      assetContainer.append(specificSearch);
-    };
-
-    	$(document).on("click", ".alphabet", function(){
-        var letter = this.value;
-      		if ( letter = assets.itemName.charAt(0) ){
-            search();
-          };
-        
-      });
+    
+    search();
 
 
 });
