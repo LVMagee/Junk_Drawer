@@ -2,6 +2,10 @@
 $(document).ready(function(){
 	var nav = document.getElementById("navBar")
 
+  $(document).on("click", ".itemRemove", function(){
+    $("#itemDetail").hide();
+  });
+
 	$(document).on('click','.itemRowClick',function(){
 		$("#itemDetail").toggle("blind", 1000);
 		nav.style.opacity = 0.25;

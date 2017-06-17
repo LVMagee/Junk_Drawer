@@ -60,7 +60,7 @@ $(document).ready(function(){
   
       var newCollapsePanel = $("<div>");
       newCollapsePanel.attr("id", "collapseOne" + x);
-      newCollapsePanel.addClass("panel-collapse collapse in");
+      newCollapsePanel.addClass("panel-collapse collapse");
       newCollapsePanel.attr("role", "tabpanel");
       newCollapsePanel.attr("aria-labelledby", "headingOne" + x);
       newInsuranceRow.append(newCollapsePanel);
