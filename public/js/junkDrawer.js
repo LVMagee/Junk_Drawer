@@ -67,13 +67,6 @@ $(document).ready(function(){
       assetContainer.append(specificSearch);
     };
 
-    // function initializeRows() {
-  //     assetContainer.empty();
-  //     var rowsToAdd = [];
-  //     for (var i = 0; i < assets.length; i++) {
-  //       rowsToAdd.push(createNewRow(assets[i]));
-  //     }   
-
     	$(document).on("click", ".alphabet", function(){
         var letter = this.value;
       		if ( letter = assets.itemName.charAt(0) ){

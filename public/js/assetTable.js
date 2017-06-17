@@ -55,6 +55,8 @@ $(document).ready(function(){
       editIcon.addClass("glyphicon glyphicon-pencil itemEdit");
       editIcon.attr("aria-hidden", "true");
       editIcon.attr("id", "icons");
+      editIcon.attr("data-toggle", "modal");
+      editIcon.attr("data-target", "#updateItemForm");
       editIcon.data("asset", asset);
       newLinksRow.append(editIcon);
 
@@ -200,45 +202,26 @@ $(document).ready(function(){
   //=================================================================
   //=================================================================
   $(document).on("click", ".itemEdit", editAsset);
+  $(document).on("submit", "#update-asset-form", updateAsset);
 
-  // This function handles showing the input box for a user to edit an asset
+  // This function handles showing the form for a user to edit an asset
   function editAsset() {
     var currentAsset = $(this).data("asset");
-    $(this)
-      .children()
-      .hide();
-    $(this)
-      .children("input.edit")
-      .val(currentAsset.text);
-    $(this)
-      .children("input.edit")
-      .show();
-    $(this)
-      .children("input.edit")
-      .focus();
+    
+    $("#updateCategory").val(currentAsset.category);
+    $("#updateItemName").val(currentAsset.itemName);
+    $("#updateMake").val(currentAsset.make);
+    $("#updateModel").val(currentAsset.model);
+    $("#updateSerialNumber").val(currentAsset.serial_num);
+    $("#updateDate").val(currentAsset.bought);
+    $("#updatePrice").val(currentAsset.price);
+    $("#updateItemInfo").val(currentAsset.info);
   }
 
-  // This function starts updating an asset in the database if a user hits the
-  // "Enter Key" While in edit mode
-  function finishEdit(event) {
-    var updatedAsset;
-    if (event.key === "Enter") {
-      updatedAsset = {
-        id: $(this)
-          .data("todo")
-          .id,
-        text: $(this)
-          .children("input")
-          .val()
-          .trim()
-      };
-      $(this).blur();
-      updateAsset(updatedAsset);
-    }
-  }
-
+  
   // This function updates assets in our database
-  function updateAsset(asset) {
+  function updateAsset(event) {
+    event.preventDefault();
     $.ajax({
       method: "PUT",
       url: "/api/assets",
