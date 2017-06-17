@@ -32,7 +32,7 @@ module.exports = function(sequelize, DataTypes) {
         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
         cb(null, options);
       }
-    });
+    },;
 
 //     classMethods: {
 //       associate: function(models) {
@@ -41,6 +41,7 @@ module.exports = function(sequelize, DataTypes) {
 //         });
 //       }
 //     }
+});
 
   return User;
 
