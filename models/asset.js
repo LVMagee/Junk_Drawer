@@ -32,7 +32,7 @@ module.exports = function(sequelize, DataTypes) {
         },
 
         bought: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             allowNull: false,
             isDate: true, 
             
@@ -61,8 +61,7 @@ module.exports = function(sequelize, DataTypes) {
         classMethods: {
             associate: function(models) {
          
-                Asset.belongsTo(models.Owner, {
-        
+                Asset.belongsTo(models.User, {
                     foreignKey: {
                       allowNull: false
                     }

@@ -57,7 +57,7 @@ module.exports = function(sequelize, DataTypes) {
 			classMethods: {
 				associate: function(models) {
 
-					Insurance.belongsTo(models.Owner, {
+					Insurance.belongsTo(models.User, {
 						foreignKey: {
 							allowNull: false
 						}
