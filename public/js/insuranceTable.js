@@ -155,7 +155,6 @@ $(document).ready(function(){
       deleteInsuranceIcon.data("id", insurance.id);
       newCenter.append(deleteInsuranceIcon);
 
-
       return newInsuranceRow;
   }
 
