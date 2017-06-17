@@ -202,7 +202,6 @@ $(document).ready(function(){
   //=================================================================
   //=================================================================
   $(document).on("click", ".itemEdit", editAsset);
-  $(document).on("submit", "#update-asset-form", updateAsset);
 
   // This function handles showing the form for a user to edit an asset
   function editAsset() {
@@ -216,38 +215,35 @@ $(document).ready(function(){
     $("#updateDate").val(currentAsset.bought);
     $("#updatePrice").val(currentAsset.price);
     $("#updateItemInfo").val(currentAsset.info);
+
+    $(document).on("submit", "#update-asset-form", updateAsset(currentAsset));
   }
 
   
   // This function updates assets in our database
-  function updateAsset(event) {
+  function updateAsset(currentAsset, event) {
     event.preventDefault();
+    
+    var updateAsset = {
+      category: $("#updateCategory").val().trim(),
+      itemName: $("#updateItemName").val().trim(),
+      make: $("#updateMake").val().trim(),
+      model: $("#updateModel").val().trim(),
+      serial_num: $("#updateSerialNumber").val().trim(),
+      bought: $("#updateDate").val().trim(),
+      price: $("#updatePrice").val().trim(),
+      info: $("#updateItemInfo").val().trim(),
+      id: currentAsset.id
+    };
+
     $.ajax({
       method: "PUT",
-      url: "/api/assets",
-      data: asset
-    })
-    .done(function() {
+      url: "api/assets",
+      data: updateAsset
+    }).done(function(){
+
       displayAssets();
     });
-  }
-
-  // This function is called whenever a asset item is in edit mode and loses focus
-  // This cancels any edits being made
-  function cancelEdit() {
-    var currentAsset = $(this).data("asset");
-    $(this)
-      .children()
-      .hide();
-    $(this)
-      .children("input.edit")
-      .val(currentTodo.text);
-    $(this)
-      .children("span")
-      .show();
-    $(this)
-      .children("button")
-      .show();
   }
 
 
