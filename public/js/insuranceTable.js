@@ -60,7 +60,7 @@ $(document).ready(function(){
   
       var newCollapsePanel = $("<div>");
       newCollapsePanel.attr("id", "collapseOne" + x);
-      newCollapsePanel.addClass("panel-collapse collapse in");
+      newCollapsePanel.addClass("panel-collapse collapse");
       newCollapsePanel.attr("role", "tabpanel");
       newCollapsePanel.attr("aria-labelledby", "headingOne" + x);
       newInsuranceRow.append(newCollapsePanel);
@@ -148,6 +148,8 @@ $(document).ready(function(){
       var editInsuranceIcon = $("<span>");
       editInsuranceIcon.addClass("glyphicon glyphicon-pencil insuranceEdit");
       editInsuranceIcon.attr("aria-hidden", "true");
+      editInsuranceIcon.attr("data-target", "#updateInsuranceInfoForm")
+      editInsuranceIcon.data("insurance", insurance);
       newCenter.append(editInsuranceIcon);
 
       var deleteInsuranceIcon = $("<span>");
@@ -194,6 +196,51 @@ $(document).ready(function(){
   //code to update insurance when edit icon is clicked
   //=================================================================
   //=================================================================
+  // $(document).on("click", ".insuranceEdit", editInsurance);
+
+  // // This function handles showing the form for a user to edit an asset
+  // function editInsurance() {
+  //   var currentInsurance = $(this).data("insurance");
+    
+  //   $("#updateInsur_type").val(currentInsurance.insur_type);
+  //   $("#updateCompanyName").val(currentInsurance.company);
+  //   $("#updatePhoneNum").val(currentInsurance.phone_num);
+  //   $("#updateAgent").val(currentInsurance.agent);
+  //   $("#updatePolicyNum").val(currentInsurance.policy_num);
+  //   $("#updateStartDate").val(currentInsurance.start_date);
+  //   $("#updateInsurInfo").val(currentInsurance.info);
+
+  //   $(document).on("submit", "#update-insurance-form", updateInsurance(currentInsurance));
+  // }
+
+  
+  // // This function updates assets in our database
+  // function updateInsurance(currentInsurance) {
+    
+  //   var updateInsurance = {
+  //     insur_type: $("#updateInsur_type").val().trim(),
+  //     company: $("#updateCompanyName").val().trim(),
+  //     phone_num: $("#updatePhoneNum").val().trim(),
+  //     agent: $("#updateAgent").val().trim(),
+  //     policy_num: $("#updatePolicyNum").val().trim(),
+  //     start_date: $("#updateStartDate").val().trim(),
+  //     info: $("#updateInsurInfo").val().trim(),
+  //     id: currentInsurance.id
+  //   };
+
+  //   pushInsuranceUpdate(updateInsurance);
+  // }
+
+  // function pushInsuranceUpdate(insurance){
+  //   $.ajax({
+  //     method: "PUT",
+  //     url: "api/insurance",
+  //     data: insurance
+  //   }).done(function(){
+
+  //     displayInsurance();
+  //   });
+  // }
 
 
   //code to delete insurance when delete icon in clicked
