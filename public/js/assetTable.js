@@ -221,8 +221,7 @@ $(document).ready(function(){
 
   
   // This function updates assets in our database
-  function updateAsset(currentAsset, event) {
-    event.preventDefault();
+  function updateAsset(currentAsset) {
     
     var updateAsset = {
       category: $("#updateCategory").val().trim(),
@@ -236,10 +235,14 @@ $(document).ready(function(){
       id: currentAsset.id
     };
 
+    pushUpdate(updateAsset);
+  }
+
+  function pushUpdate(asset){
     $.ajax({
       method: "PUT",
       url: "api/assets",
-      data: updateAsset
+      data: asset
     }).done(function(){
 
       displayAssets();
