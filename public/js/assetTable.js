@@ -48,16 +48,19 @@ $(document).ready(function(){
       var newLinkRowContainer = $("<td>");
 
       var newLinksRow = $("<div>");
-      newLinksRow.attr("id", "manageLinks")
+      newLinksRow.attr("id", "manageLinks");
       newLinkRowContainer.append(newLinksRow);
 
       var editIcon = $("<span>");
       editIcon.addClass("glyphicon glyphicon-pencil itemEdit");
       editIcon.attr("aria-hidden", "true");
+      editIcon.attr("id", "icons");
+      editIcon.data("asset", asset);
       newLinksRow.append(editIcon);
 
       var deleteIcon = $("<span>");
       deleteIcon.addClass("glyphicon glyphicon-remove itemRemove");
+      deleteIcon.attr("id", "icons");
       deleteIcon.data("id", asset.id);
       newLinksRow.append(deleteIcon);
 
@@ -69,6 +72,94 @@ $(document).ready(function(){
   //code to display full asset information when asset row is clicked
   //=================================================================
   //=================================================================
+  $(document).on("click", ".itemRowClick", fullAssestDisplay);
+  $(document).on("click", "#closeItemDetail", emptyAssets);
+
+  var items = $(".items");
+
+  //function to retreieve full asset details
+  function fullAssestDisplay(){
+    var thisAsset = $(this).data("asset");
+
+    var categoryTag = $("<h4>");
+    categoryTag.text("Category:");
+    var categoryText = $("<div>");
+    categoryText.attr("id", "displayCategory");
+    categoryText.text(thisAsset.category);
+    categoryTag.append(categoryText);
+    items.append(categoryTag);
+
+    var break1 = $("<br>");
+    items.append(break1);
+
+    var makeTag = $("<h4>");
+    makeTag.text("Manufacturer/Brand:");
+    var makeText = $("<div>");
+    makeText.attr("id", "displayMake");
+    makeText.text(thisAsset.make);
+    makeTag.append(makeText);
+    items.append(makeTag);
+
+    var break2 = $("<br>");
+    items.append(break2);
+
+    var modelTag = $("<h4>");
+    modelTag.text("Model:");
+    var modelText = $("<div>");
+    modelText.attr("id", "displayModel");
+    modelText.text(thisAsset.model);
+    modelTag.append(modelText);
+    items.append(modelTag);
+
+    var break3 = $("<br>");
+    items.append(break3);
+
+    var serialNumTag = $("<h4>");
+    serialNumTag.text("Serial Number:");
+    var serialNumText = $("<div>");
+    serialNumText.attr("id", "displaySerialNum");
+    serialNumText.text(thisAsset.serial_num);
+    serialNumTag.append(serialNumText);
+    items.append(serialNumTag);
+
+    var break4 = $("<br>");
+    items.append(break4);
+
+    var priceTag = $("<h4>");
+    priceTag.text("Price:");
+    var priceText = $("<div>");
+    priceText.attr("id", "displayPrice");
+    priceText.text(thisAsset.price);
+    priceTag.append(priceText);
+    items.append(priceTag);
+
+    var break5 = $("<br>");
+    items.append(break5);
+
+    var datePurchasedTag = $("<h4>");
+    datePurchasedTag.text("Date Purchased:");
+    var datePurchasedText = $("<div>");
+    datePurchasedText.attr("id", "displayDatePurchased");
+    datePurchasedText.text(thisAsset.bought);
+    datePurchasedTag.append(datePurchasedText);
+    items.append(datePurchasedTag);
+
+    var break6 = $("<br>");
+    items.append(break6);
+
+    var infoTag = $("<h4>");
+    infoTag.text("Additional Comments:");
+    var infoText = $("<div>");
+    infoText.attr("id", "displayInfo");
+    infoText.text(thisAsset.info);
+    infoTag.append(infoText);
+    items.append(infoTag);
+  }
+
+  //to empty out panel containing asset info when panel is closed
+  function emptyAssets(){
+    $(".items").empty();
+  }
 
   //Code to submit new asset to database via asset form
   //======================================================================
@@ -108,6 +199,73 @@ $(document).ready(function(){
   //code to update asset when edit icon is clicked
   //=================================================================
   //=================================================================
+  $(document).on("click", ".itemEdit", editAsset);
+
+  // This function handles showing the input box for a user to edit an asset
+  function editAsset() {
+    var currentAsset = $(this).data("asset");
+    $(this)
+      .children()
+      .hide();
+    $(this)
+      .children("input.edit")
+      .val(currentAsset.text);
+    $(this)
+      .children("input.edit")
+      .show();
+    $(this)
+      .children("input.edit")
+      .focus();
+  }
+
+  // This function starts updating an asset in the database if a user hits the
+  // "Enter Key" While in edit mode
+  function finishEdit(event) {
+    var updatedAsset;
+    if (event.key === "Enter") {
+      updatedAsset = {
+        id: $(this)
+          .data("todo")
+          .id,
+        text: $(this)
+          .children("input")
+          .val()
+          .trim()
+      };
+      $(this).blur();
+      updateAsset(updatedAsset);
+    }
+  }
+
+  // This function updates assets in our database
+  function updateAsset(asset) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/assets",
+      data: asset
+    })
+    .done(function() {
+      displayAssets();
+    });
+  }
+
+  // This function is called whenever a asset item is in edit mode and loses focus
+  // This cancels any edits being made
+  function cancelEdit() {
+    var currentAsset = $(this).data("asset");
+    $(this)
+      .children()
+      .hide();
+    $(this)
+      .children("input.edit")
+      .val(currentTodo.text);
+    $(this)
+      .children("span")
+      .show();
+    $(this)
+      .children("button")
+      .show();
+  }
 
 
   //code to delete asset when delete icon in clicked
