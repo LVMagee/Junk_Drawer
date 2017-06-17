@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Monkey-11",
+    "password": null,
     "database": "assets_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
