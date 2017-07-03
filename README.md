@@ -15,18 +15,16 @@ Include a one or two screenshots of main UI/UX points of your app and how it sol
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+https://powerful-atoll-50523.herokuapp.com/
 
 ### Prerequisities
 
 What to install and how for local development and testing purposes
 
-```
-- node.js: visit node.js and download...
-- mongodb: npm install -g mongodb
-- mysqldb: brew install mysql
-- jasmine: npm i -g jasmine
-```
+npm install
+mysql -u root -p
+mysql source schema.sql
+mysql source user_seeds.sql, asset_seeds.sql, insure_seeds.sql
 
 ## Built With
 
@@ -39,13 +37,7 @@ For Project presentation, you can include snippets of code you found buggy, inte
 
 You can also show where you've used technologies you've learned and applied here.
 
-```
-function awesomeThing() {
-    //...
-    // try not to make it too long otherwise, point to filepaths:line numbers
-    //...
-}
-```
+
 
 ## Authors
 
